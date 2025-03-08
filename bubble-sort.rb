@@ -1,21 +1,19 @@
 def bubble_sort(numbers)
   numbers_sorted = numbers.dup
   sorted = false
-  unsorted = 0
   
-  while numbers_sorted.length > 1 && !sorted
+  while !sorted
+    sorted = true
     for i in 0..numbers_sorted.length - 2 do
       if numbers_sorted[i + 1] < numbers_sorted[i]
         numbers_sorted[i], numbers_sorted[i + 1] = numbers_sorted[i + 1], numbers_sorted[i]
-        unsorted = 0
-      else
-        unsorted += 1
+        sorted = false
       end
-    sorted = unsorted > numbers_sorted.length - 2? true : false
     end
   end
   numbers_sorted
 end
+
 
 def test_bubble_sort
   # Case 1: Unsorted array of numbers
